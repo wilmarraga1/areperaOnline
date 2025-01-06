@@ -20,6 +20,8 @@ Promise.all([
     prices = json[1].data;
     prices.forEach(el => {
         let productData = products.filter(product => product.id === el.product);
+
+        console.log(productData)
         
         $template.querySelector(".arepa").setAttribute("data-price", el.id);
         $template.querySelector("img").src = productData[0].images[0];
@@ -49,8 +51,8 @@ $d.addEventListener("click", e => {
                 quantity: 1
             }],
             mode: "subscription",
-            successUrl:"http://127.0.01:5500/assets/success.html",
-            cancelUrl:"http://127.0.01:5500/assets/cancel.html"
+            successUrl:"http://127.0.01:5501/assets/success.html",
+            cancelUrl:"http://127.0.01:5501/assets/cancel.html"
         })
         .then(res => {
             if (res.error){
